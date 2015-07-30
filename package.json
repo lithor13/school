@@ -1,0 +1,20 @@
+{
+  "name": "myproject",
+  "version": "0.0.0",
+  "description": "making school websites",
+  "main": "app.js",
+  "dependencies": {
+    "consolidate": "~0.9.1",
+    "express": "~3.5",
+    "mongodb": "~1.3.9",
+    "validator": "~1.1.3",
+    "underscore": "~1.8.3",
+    "fs": "0.0.2",
+    "excel-parser": "~0.2.2"
+  },
+  "devDependencies": {},
+  "repository": "",
+  "author": "nitesh kumar singh",
+  "license": "",
+  "private": true
+}

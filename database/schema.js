@@ -8,14 +8,15 @@ var Schema = mongoose.Schema;
 
 var Student = new Schema({
 	name:String,
-	rollnumber:String,
+	rollnumber:Number,
 	password:String,
-	Address:String,
-	PhoneNumber:String,
+	address:String,
+	phoneNumber:String,
 	fathername:String,
 	email:String,
 	photo:String,
 	marks:[{
+		_id:false,
 		subject : {
 			class1:Number,
 			name:String,

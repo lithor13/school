@@ -1,65 +1,66 @@
 var db = require("./schema.js");
 //console.log("test",db);
-modeule.export.student {
+module.exports.student = {
 
-	function addNewStudent (studentRecord) {
+	addNewStudent: function (studentRecord,callback) {
  		db.student.create(studentRecord,function(error,data) {
  			if(error) { 
  				console.log("error on while creating new record of student",data);
- 				callback(error);
+ 				callback(error,null);
  			} else { 
- 				console.log("data return while creting new student" , data);
- 				callback(data);
+ 				console.log("data return while creting new student" ,data);
+ 				callback(null,data);
  			}	
 		});
 	},
-	function updateStudentRecord(condition,record) {
+	updateStudentRecord: function (condition,record,callback) {
 		db.student.update(condition,{$set:record},function(error,data){
 			if(error) {
 				console.log("Updating issue");
-				callback(error);
+				callback(error,null);
 			} else { 
-			callback(record);	
+				callback(null,record);	
 			}
 		});
 	},
-	function findStudentRecord(condition) {
+	findStudentRecord:function (condition,callback) {
 		db.student.findOne(condition,function(error,data) {
 		  	if(error) { 
 		  		console.log("data not found");
-		  		callback(error);
+		  		callback(error,null);
 		  	} else { 
-		  		callback(data);
+		  		console.log("in database ", data);
+		  		callback(null,data);
 		  	}
 		})
 	},
 
-	function deleteStudentRecord(condition) {
+	deleteStudentRecord:function (condition,callback) {
 		db.student.remove(condition,function(error,data) {
 			if(error) {
-				callback(error);
+				callback(error,null);
 			} else {
-				callback(data);
+				callback(null,data);
 			}
 		})
 	},
-	function addMaks(condition,record) { 
-		db.student.update(condition,{$push:record},function(error,data) {
+	addMaks:function (condition,record,callback) { 
+		db.student.update(condition,{$push:{"marks":{"subject":record }}},function(error,data) {
 			if(error) {
-				callback(error);
+				callback(error,null);
 			} else {
-				callback(data);
+				callback(null,data);
 			}
 		})
 	},
-	function updateMarks(condition,record) { 
+	updateMarks:function (condition,record,callback) { 
 		db.student.update(condition,{$set:record},function(error,data){
 			if(error) {
 				console.log("Updating issue");
-				callback(error);
+				callback(error,null);
 			} else { 
-			callback(record);	
+			callback(null,record);	
 			}
 		});
 	},
-},
+}

@@ -45,7 +45,7 @@ module.exports.student = {
 		})
 	},
 	addMaks:function (condition,record,callback) { 
-		db.student.update(condition,{$push:{"marks":{"subject":record }}},function(error,data) {
+		db.student.update(condition,{$push:{"marks":record}},function(error,data) {
 			if(error) {
 				callback(error,null);
 			} else {
@@ -53,6 +53,7 @@ module.exports.student = {
 			}
 		})
 	},
+	
 	updateMarks:function (condition,record,callback) { 
 		db.student.update(condition,{$set:record},function(error,data){
 			if(error) {

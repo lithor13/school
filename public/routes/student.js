@@ -20,7 +20,7 @@ router.post("/rollnumber",function(req,res,next){
 	console.log("the json is",req.body)
 	//console.log("test");
 	//var json = JSON.parse(req.body);
-	res.send("test");
+	//res.send("test");
 	var roll = req.body;
 	database.addNewStudent(roll,function(error,data){
 		if(error) { 

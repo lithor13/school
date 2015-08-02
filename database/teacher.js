@@ -1,65 +1,66 @@
 var db = require("./schema.js");
 //console.log("test",db);
-modeule.export.teacher {
+module.exports.teacher = {
 
-	function addNewTeacher (studentRecord) {
- 		db.teacher.create(studentRecord,function(error,data) {
+	addNewTeacher:function(studentRecord,callback) {
+		console.log(studentRecord);
+ 		db.teachers.create(studentRecord,function(error,data) {
  			if(error) { 
- 				console.log("error on while creating new record of student",data);
- 				callback(error);
+ 				console.log("error on while creating new record of teacher",data);
+ 				callback(error,null);
  			} else { 
  				console.log("data return while creting new student" , data);
- 				callback(data);
+ 				callback(null,data);
  			}	
 		});
 	},
-	function updateTeacherRecord(condition,record) {
-		db.teacher.update(condition,{$set:record},function(error,data){
+	updateTeacherRecord:function (condition,record,callback) {
+		db.teachers.update(condition,{$set:record},function(error,data){
 			if(error) {
 				console.log("Updating issue");
-				callback(error);
+				callback(error,null);
 			} else { 
-			callback(record);	
+			callback(null,record);	
 			}
 		});
 	},
-	function findTeacherRecord(condition) {
-		db.teacher.findOne(condition,function(error,data) {
+	findTeacherRecord:function (condition,callback) {
+		db.teachers.findOne(condition,function(error,data) {
 		  	if(error) { 
 		  		console.log("data not found");
-		  		callback(error);
+		  		callback(error,null);
 		  	} else { 
-		  		callback(data);
+		  		callback(null,data);
 		  	}
 		})
 	},
 
-	function deleteTeacherRecord(condition) {
-		db.teacher.remove(condition,function(error,data) {
+	deleteTeacherRecord:function (condition,callback) {
+		db.teachers.remove(condition,function(error,data) {
 			if(error) {
-				callback(error);
+				callback(error,null);
 			} else {
-				callback(data);
+				callback(null,data);
 			}
 		})
 	},
-	function addCourse(condition,record) { 
-		db.teacher.update(condition,record,function(error,data) {
+	addCourse:function (condition,record,callback) { 
+		db.teachers.update(condition,{$push:{"course":record}},function(error,data) {
 			if(error) {
-				callback(error);
+				callback(error,null);
 			} else {
-				callback(data);
+				callback(null,data);
 			}
 		})
 	},
-	function updateCourse(condition,record) { 
-		db.student.update(condition,{$set:record},function(error,data){
+	updateCourse:function (condition,record,callback) { 
+		db.students.update(condition,{$set:record},function(error,data){
 			if(error) {
 				console.log("Updating issue");
-				callback(error);
+				callback(error,null);
 			} else { 
-			callback(record);	
+			callback(null,record);	
 			}
 		});
 	},
-},
+}

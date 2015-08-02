@@ -1,45 +1,45 @@
 var db = require("./schema.js");
 //console.log("test",db);
-modeule.export.school {
+module.exports.school = {
 
-	function addNewSchool(Schooldata) { 
+	addNewSchool:function (Schooldata) { 
 		db.school.create(Schooldata,function(error,data){ 
 			if(error) { 
-				callback(error);
+				callback(error,null);
 			} else {
-				callback(data);
+				callback(null,data);
 			}
 		});
 	},	
-	function addNewBranch(condition,value) {
+	addNewBranch:function (condition,value) {
 		db.schools.update(condition,{$push:{"branch":value}},function(error,data) {
 			if(error) {
-				callback(error); 
+				callback(error,null); 
 			} else { 
-			callback(data);
+			callback(null,data);
 			}
 		});
 	},
-	function deleteNewBranch(condition,value) {
+	deleteNewBranch:function (condition,value) {
 		db.schools.update(condition,{$pull:{"branch":value}},function(error,data) {
 			if(error) {
-				callback(error); 
+				callback(error,null); 
 			} else { 
-			callback(data);
+			callback(null,data);
 			}
 		});
 	},
 
-	function addNewpicture(condition,value) {
+	addNewpicture:function (condition,value) {
 		db.schools.update(condition,{$push:{"photo":value}},function(error,data) {
 			if(error) {
-				callback(error); 
+				callback(error,null); 
 			} else { 
-			callback(data);
+			callback(null,data);
 			}
 		});
 	},
-	function deleteNewpicture(condition,value) {
+	deleteNewpicture:function (condition,value) {
 		db.schools.update(condition,{$pull:{"photo":value}},function(error,data) {
 			if(error) {
 				callback(error); 

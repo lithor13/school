@@ -1,12 +1,14 @@
 var express = require("express");
+var path =  require("path");
 var fs = require("fs");
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var student = require("./public/routes/student.js");
-var teacher = require("./public/routes/teacher.js");
+var student = require("./routes/student.js");
+var teacher = require("./routes/teacher.js");
 var app =  express();
 
 app.use(express.static(__dirname + "/database"));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -21,8 +23,8 @@ app.use('/student',student);
 app.use('/teacher',teacher);
 
 app.use("/",function(req,res){
-	console.log("bhakk")
-  res.send("test");
+	res.sendfile('public/index.htm');;
+  //res.send("test");
 }),
-app.listen(5400);
+app.listen(5401);
 console.log("start server");

@@ -1,9 +1,10 @@
 var express = require("express");
 var router = express.Router();
-var database = require("./../../database/student.js").student;
+var database = require("./../database/student.js").student;
 
-router.get("/rollnumber/:rollnum",function(req,res,next) {
-	var roll = {"rollnumber":req.params.rollnum};
+router.get("/rollnumber/:data",function(req,res,next) {
+	console.log(req.body);
+	var roll = req.params.data;
 	console.log("test get data",roll);
 	database.findStudentRecord(roll,function(error,data){
 		if(error) { 

@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var database = require("./../../database/teacher.js").teacher;
+var database = require("./../database/teacher.js").teacher;
 
 router.get("/:id",function(req,res,next) {
 	var roll = {"employmentId":req.params.id};

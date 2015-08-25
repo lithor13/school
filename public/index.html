@@ -1,0 +1,72 @@
+<html lang="en">
+
+<head>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- libraries -->
+    <script src="js/lib/jquery-2.1.1.min.js"></script>
+    <script src="js/lib/handlebars-v1.3.0.js"></script>
+    <script src="js/lib/ember181.js"></script>
+    <script src="js/lib/ember-data.js"></script>
+    <script src="js/lib/ember-shortcut.js"></script>
+    <script src="js/lib/uuid.js"></script>
+    <script src="js/lib/underscore.js"></script>
+    <script src="js/lib/utils.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/route/student.js"></script>
+    <script src="js/controller/student.js"></script>
+    
+</head>
+
+<body class="container-fluid">
+    <script type="text/x-handlebars" id="application" data-template-name="application">
+        <div class="col-xs-12 none">
+            <div class="col-xs-12 header none">
+                <img class="col-xs-1 none" src="images/logo.png">
+                <h1 class="col-xs-7 none margin5 text-center" style="
+    padding: 20px;
+">Maa Matrayani Yogani Secondary School</h1>
+                <ul class="col-xs-4 list-inline pull-right margin5" style="
+    font-size: 12px;
+">
+                    <li valign="top">
+                        <a href="">Home
+                        </a>
+                    </li>
+                    <li valign="top">
+                        <a href="">
+                        Contact</a>
+                    </li>
+                    <li>
+                        {{#link-to 'student'}} Student Login {{/link-to}}
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                        Admin Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {{outlet}}
+    </script>
+
+  <script type="text/x-handlebars" data-template-name="student">
+    <div class="col-xs-3 header">"testing"</div>
+    <div class="col-xs-6 margin10 login">
+        <div class="control-label">
+            <label>Rollnumber<span class="star">*</span>&nbsp;:</label>
+            {{input class="inputbox"type="text" id="Rollnumber" maxlength=20 autofocus="true" valueBinding="rollnumber"}}
+        </div>
+        <div class="control-label">
+            <label>Password <span class="star">*</span>&nbsp;:</label>
+            {{input class="inputbox" type="password" id="pass1" valueBinding="password"}}
+        </div>
+            <div class="submitbtn margin10" {{action "studentLogin" post on="mouseUp" }}>Submit
+            </div>
+    </div>
+
+    </script>
+
+</body>
+
+</html>

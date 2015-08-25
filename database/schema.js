@@ -37,7 +37,7 @@ module.exports.student = mongoose.model('student', Student);
 
 var marks = new Schema({
         _id: false,
-        student:String
+        student:String,
         standard: Number,
         number: Number,
         grade: String,

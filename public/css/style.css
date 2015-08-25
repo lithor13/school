@@ -1,0 +1,57 @@
+body {
+	background-color: white;
+	color:white;
+}
+.header{
+  background-color: #7284C1;
+
+}
+.none{
+	padding: 0;
+	margin:0;
+}
+
+h1{
+	font-family: inherit;
+	font-size: 25px;
+}
+
+.margin5{
+	margin : 5px 0px;
+}
+
+.margin10{
+	margin : 10px 0px;
+}
+
+a {
+	color:white;
+}
+
+a:hover, a:focus {
+	color:white;
+	text-decoration: none;
+}
+.inputbox{
+	color:black;
+}
+.login {
+height:500px; 
+background-color: red;
+}
+.control-label {
+	margin-left: 14%;
+  	margin-top: 9%;
+}
+.submitbtn{
+  color: black;
+  width: 12%;
+  background-color: white;
+  height: 7%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 7px;
+  margin-top: 10%;
+  margin-left: 33%;
+}
+
